@@ -10,6 +10,7 @@ public class Email {
     private String department;
     private String email;
     private String alternateEmail;
+    private String companySuffix = "snpoland.com";
     private int mailboxCapacity;
     private int defaultPasswordLength = 10;
 
@@ -23,6 +24,10 @@ public class Email {
 
         this.password = randomPassword(defaultPasswordLength);
         System.out.println("Your password is " + this.password);
+
+        email = firstName.toLowerCase() + lastName.toLowerCase() + "@"  + department.toLowerCase() + ".4" + companySuffix;
+        System.out.println("Your email is  " + email);
+
     }
 
     private String setDepartment() {
@@ -61,7 +66,6 @@ public class Email {
             int random = (int) (Math.random() * passwordSet.length());
             password[i] = passwordSet.charAt(random);
         }
-
         return new String(password);
     }
 }
