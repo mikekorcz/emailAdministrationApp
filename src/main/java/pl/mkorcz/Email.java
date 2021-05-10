@@ -11,27 +11,24 @@ public class Email {
     private String email;
     private String alternateEmail;
     private String companySuffix = "snpoland.com";
-    private int mailboxCapacity;
+    private int mailboxCapacity = 500;
     private int defaultPasswordLength = 10;
 
     public Email(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        System.out.println("Email created: " + this.firstName + " " + this.lastName);
 
         this.department = setDepartment();
-        System.out.println("Department " + this.department);
 
         this.password = randomPassword(defaultPasswordLength);
-        System.out.println("Your password is " + this.password);
+        System.out.println("Your password is: " + this.password);
 
         email = firstName.toLowerCase() + lastName.toLowerCase() + "@"  + department.toLowerCase() + ".4" + companySuffix;
-        System.out.println("Your email is  " + email);
-
     }
 
     private String setDepartment() {
-        System.out.println("Department codes ");
+        System.out.println("Hello "  +  firstName + ".");
+        System.out.println("Department codes: ");
         System.out.println("1 for Sales");
         System.out.println("2 for Development");
         System.out.println("3 for Marketing");
@@ -67,5 +64,35 @@ public class Email {
             password[i] = passwordSet.charAt(random);
         }
         return new String(password);
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getAlternateEmail() {
+        return alternateEmail;
+    }
+
+    public void setAlternateEmail(String alternateEmail) {
+        this.alternateEmail = alternateEmail;
+    }
+
+    public int getMailboxCapacity() {
+        return mailboxCapacity;
+    }
+
+    public void setMailboxCapacity(int mailboxCapacity) {
+        this.mailboxCapacity = mailboxCapacity;
+    }
+
+    public String showInfo() {
+        return "Display name: " + firstName + " " + lastName +
+                "\nCompany e-mail: " + email +
+                "\nMaibox capacity: " + mailboxCapacity + "mb";
     }
 }
